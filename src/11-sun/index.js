@@ -15,6 +15,8 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     1000
 )
+
+// 球缓冲几何体
 const SphereGeometry = new THREE.SphereGeometry(1,20,20);
 const meterial = new THREE.MeshPhongMaterial({
     color:0xffffffff
@@ -27,12 +29,13 @@ sphere.castShadow = true;
 const planeGeometry = new THREE.PlaneGeometry(50,50);
 const plane = new THREE.Mesh(planeGeometry,meterial);
 plane.position.set(0,-1,0);
+// 将地面放平
 plane.rotation.x = -Math.PI/2;
 //5.设置物体接收阴影
 plane.receiveShadow = true;
 scene.add(plane)
 scene.add(sphere)
- 
+// 创建一个太阳
 const smallBall = new THREE.Mesh(
     new THREE.SphereGeometry(0.1,20,20),
     new THREE.MeshBasicMaterial({color:0xff0000})
